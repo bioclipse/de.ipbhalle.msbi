@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.ipbhalle.metfrag_site"
-      label="MetFrag Update Site"
+      id="de.ipbhalle.msbi_site"
+      label="Bioclipse MSBI Update Site"
       version="2.5.0.qualifier"
-      provider-name="The Bioclipse Team">
+      provider-name="The Steffen Neumann Lab">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -17,9 +17,6 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="net.bioclipse.data.metabolomics_feature"
-         version="0.0.0"/>
    <includes
          id="de.ipbhalle.metafrag_feature"
          version="0.0.0"/>
