@@ -2,32 +2,19 @@ package de.ipbhalle.metfrag.fragmenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-
 import org.openscience.cdk.Atom;
-import org.openscience.cdk.AtomContainer;
-import org.openscience.cdk.AtomContainerSet;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.RingSet;
-import org.openscience.cdk.aromaticity.AromaticityCalculator;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.interfaces.IAtomContainerSet;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IChemObjectBuilder;
-import org.openscience.cdk.interfaces.IMolecule;
-import org.openscience.cdk.interfaces.IRing;
 import org.openscience.cdk.interfaces.IRingSet;
-import org.openscience.cdk.ringsearch.AllRingsFinder;
-
-import de.ipbhalle.metfrag.massbankParser.Peak;
-//import de.ipbhalle.metfrag.tools.Render;
 
 
 /**
@@ -384,7 +371,9 @@ public class ModifyFragments {
 				String temp = bondToBeDouble.getID();
 				fragCopy.removeBond(bondToBeDouble);
 				IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
-				IBond b = builder.newBond(tempAtom, tempAtom1, IBond.Order.DOUBLE);
+				IBond b = builder.newInstance(
+					IBond.class, tempAtom, tempAtom1, IBond.Order.DOUBLE
+				);
 				b.setID(temp);
 				//b.setID(Fragmenter.getBondNumber() + "");
 				//increase bond number

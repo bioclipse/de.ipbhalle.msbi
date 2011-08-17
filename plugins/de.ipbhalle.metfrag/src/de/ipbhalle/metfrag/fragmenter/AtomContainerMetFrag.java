@@ -27,7 +27,6 @@ package de.ipbhalle.metfrag.fragmenter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
@@ -40,13 +39,13 @@ import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IAtomParity;
 import org.openscience.cdk.interfaces.IBond;
+import org.openscience.cdk.interfaces.IBond.Order;
+import org.openscience.cdk.interfaces.IBond.Stereo;
 import org.openscience.cdk.interfaces.IChemObjectChangeEvent;
-import org.openscience.cdk.interfaces.IChemObjectListener;
 import org.openscience.cdk.interfaces.IElectronContainer;
 import org.openscience.cdk.interfaces.ILonePair;
 import org.openscience.cdk.interfaces.ISingleElectron;
-import org.openscience.cdk.interfaces.IBond.Order;
-import org.openscience.cdk.interfaces.IBond.Stereo;
+import org.openscience.cdk.interfaces.IStereoElement;
 
 /**
  *  Base class for all chemical objects that maintain a list of Atoms and
@@ -1410,7 +1409,9 @@ public class AtomContainerMetFrag extends ChemObject
 	 */
 	public void addBond(int atom1, int atom2, IBond.Order order, Stereo stereo)
 	{
-		IBond bond = getBuilder().newBond(getAtom(atom1), getAtom(atom2), order, stereo);
+		IBond bond = getBuilder().newInstance(
+			IBond.class, getAtom(atom1), getAtom(atom2), order, stereo
+		);
 
 		if (contains(bond))
 		{
@@ -1436,7 +1437,10 @@ public class AtomContainerMetFrag extends ChemObject
 	 */
 	public void addBond(int atom1, int atom2, IBond.Order order)
 	{
-		IBond bond = getBuilder().newBond(getAtom(atom1), getAtom(atom2), order);
+		IBond bond = getBuilder().newInstance(
+			IBond.class, 
+			getAtom(atom1), getAtom(atom2), order
+		);
 
 		if (bondCount >= bonds.length)
 		{
@@ -1455,7 +1459,9 @@ public class AtomContainerMetFrag extends ChemObject
 	 */
 	public void addLonePair(int atomID)
 	{
-		ILonePair lonePair = getBuilder().newLonePair(atoms[atomID]);
+		ILonePair lonePair = getBuilder().newInstance(
+			ILonePair.class, atoms[atomID]
+		);
 		lonePair.addListener(this);
 		addLonePair(lonePair);
 		/* no notifyChanged() here because addElectronContainer() does 
@@ -1469,7 +1475,9 @@ public class AtomContainerMetFrag extends ChemObject
 	 */
 	public void addSingleElectron(int atomID)
 	{
-		ISingleElectron singleElectron = getBuilder().newSingleElectron(atoms[atomID]);
+		ISingleElectron singleElectron = getBuilder().newInstance(
+			ISingleElectron.class, atoms[atomID]
+		);
 		singleElectron.addListener(this);
 		addSingleElectron(singleElectron);
 		/* no notifyChanged() here because addSingleElectron() does 
@@ -1752,6 +1760,18 @@ public class AtomContainerMetFrag extends ChemObject
 
 	public double getBondEnergy() {
 		return bondEnergy;
+	}
+
+	@Override
+	public void addStereoElement(IStereoElement element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Iterable<IStereoElement> stereoElements() {
+		// TODO Auto-generated method stub
+		return null;
 	}   
 
 }

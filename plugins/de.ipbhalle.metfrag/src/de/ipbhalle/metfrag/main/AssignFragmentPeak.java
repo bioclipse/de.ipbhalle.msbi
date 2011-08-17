@@ -1,29 +1,18 @@
 package de.ipbhalle.metfrag.main;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Vector;
+
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.interfaces.IMolecularFormula;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.interfaces.IMolecularFormula;
 import org.openscience.cdk.tools.manipulator.MolecularFormulaManipulator;
 
-import de.ipbhalle.metfrag.fragmenter.NeutralLoss;
 import de.ipbhalle.metfrag.massbankParser.Peak;
 import de.ipbhalle.metfrag.tools.MolecularFormulaTools;
 import de.ipbhalle.metfrag.tools.PPMTool;
-//import de.ipbhalle.metfrag.tools.Render;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
 
 public class AssignFragmentPeak {
 	
@@ -118,8 +107,10 @@ public class AssignFragmentPeak {
 		boolean found = false;
 
 
-		IMolecularFormula molecularFormula = DefaultChemObjectBuilder.getInstance().newMolecularFormula();
-		molecularFormula.getBuilder().newMolecularFormula();
+		IMolecularFormula molecularFormula = 
+        		DefaultChemObjectBuilder.getInstance().newInstance(
+        			IMolecularFormula.class
+        		);
 		molecularFormula = MolecularFormulaManipulator.getMolecularFormula(ac, molecularFormula);
 		
         double mass = 0.0;

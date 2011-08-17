@@ -1,21 +1,19 @@
 package de.ipbhalle.metfrag.main;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
 
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.Molecule;
-import org.openscience.cdk.interfaces.IMolecularFormula;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IAtomContainerSet;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IChemObjectBuilder;
+import org.openscience.cdk.interfaces.IMolecularFormula;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.tools.manipulator.MolecularFormulaManipulator;
 
@@ -239,7 +237,10 @@ public class PostProcess {
         			//IBond doubleBond = frag.getBond(tempAtom, carbonList.get(i));
         			frag.removeBond(tempAtom, carbonList.get(i));
         			IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();
-        			IBond b = builder.newBond(tempAtom, carbonList.get(i), IBond.Order.DOUBLE);
+        			IBond b = builder.newInstance(
+        				IBond.class, 
+        				tempAtom, carbonList.get(i), IBond.Order.DOUBLE
+        			);
         	        frag.addBond(b);
         	        ret = frag;
         	        

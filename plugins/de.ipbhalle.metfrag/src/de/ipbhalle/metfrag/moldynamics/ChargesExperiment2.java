@@ -5,25 +5,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.openscience.cdk.ChemFile;
 import org.openscience.cdk.ChemObject;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.charges.GasteigerMarsiliPartialCharges;
-import org.openscience.cdk.charges.GasteigerPEPEPartialCharges;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.interfaces.IBond;
+import org.openscience.cdk.interfaces.IChemObjectBuilder;
 import org.openscience.cdk.io.ISimpleChemObjectReader;
 import org.openscience.cdk.io.ReaderFactory;
-import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.openscience.cdk.tools.manipulator.ChemFileManipulator;
 
 import de.ipbhalle.metfrag.bondPrediction.Charges;
-//import de.ipbhalle.metfrag.tools.Render;
 
 public class ChargesExperiment2 {
 	
@@ -62,7 +56,7 @@ public class ChargesExperiment2 {
 		
 	
 		List<IAtomContainer> containersList;
-		DefaultChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();	
+		IChemObjectBuilder builder = DefaultChemObjectBuilder.getInstance();	
 		
 		
 		try {
