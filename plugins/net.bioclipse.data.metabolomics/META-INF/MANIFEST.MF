@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Metabolomics Data Examples
 Bundle-SymbolicName: net.bioclipse.data.metabolomics;singleton:=true
-Bundle-Version: 2.0.0.v20090707
+Bundle-Version: 2.5.0.qualifier
 Bundle-Activator: net.bioclipse.data.metabolomics.Activator
 Bundle-Vendor: The Bioclipse Team
 Require-Bundle: org.eclipse.ui,
@@ -12,6 +12,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.forms,
  net.bioclipse.core,
  net.bioclipse.ui,
- net.bioclipse.data;bundle-version="2.0.0"
+ net.bioclipse.data
 Eclipse-LazyStart: true
 Import-Package: org.apache.log4j

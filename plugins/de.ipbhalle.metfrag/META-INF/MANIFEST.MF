@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: de.ipbhalle.metfrag
 Bundle-SymbolicName: de.ipbhalle.metfrag
-Bundle-Version: 0.0.1
+Bundle-Version: 2.5.0.qualifier
 Bundle-ClassPath: lib/jaxrpc.jar,
  lib/axis-ant.jar,
  lib/axis.jar,

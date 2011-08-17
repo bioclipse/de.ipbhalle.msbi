@@ -21,4 +21,8 @@
          id="de.ipbhalle.metafrag_feature"
          version="0.0.0"/>
 
+   <requires>
+      <import feature="net.bioclipse.core_feature" version="2.5.0.qualifier"/>
+   </requires>
+
 </feature>
