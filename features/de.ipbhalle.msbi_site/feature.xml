@@ -18,7 +18,7 @@
    </license>
 
    <includes
-         id="de.ipbhalle.metafrag_feature"
+         id="de.ipbhalle.metfrag_feature"
          version="0.0.0"/>
 
    <requires>
