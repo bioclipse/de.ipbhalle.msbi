@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: de.ipbhalle.metfrag
 Bundle-SymbolicName: de.ipbhalle.metfrag
 Bundle-Version: 2.5.0.qualifier
-Bundle-ClassPath: lib/jaxrpc.jar,
+Bundle-ClassPath: .,
+ lib/jaxrpc.jar,
  lib/axis-ant.jar,
  lib/axis.jar,
  lib/commons-discovery-0.2.jar,
@@ -34,8 +35,7 @@ Bundle-ClassPath: lib/jaxrpc.jar,
  lib/wsdl4j-1.5.1.jar,
  lib/activation.jar,
  lib/mail.jar,
- lib/commons-logging-1.0.4.jar,
-  .
+ lib/commons-logging-1.0.4.jar
 Export-Package: 
  com.chemspider.www,
  de.ipbhalle.metfrag.bondPrediction,
