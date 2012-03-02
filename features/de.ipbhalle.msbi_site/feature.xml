@@ -23,7 +23,6 @@
 
    <requires>
       <import feature="net.bioclipse.core_feature" version="2.5.0.qualifier"/>
-      <import plugin="javax.vecmath"/>
    </requires>
 
 </feature>
