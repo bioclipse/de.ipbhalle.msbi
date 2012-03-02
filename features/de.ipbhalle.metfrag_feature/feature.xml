@@ -29,6 +29,10 @@ The Eclipse Public License accompanies this distribution, and
 is available at http://www.eclipse.org/legal/epl-v10.html
    </license>
 
+   <requires>
+     <import plugin="javax.vecmath" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="de.ipbhalle.metfrag"
          download-size="0"
